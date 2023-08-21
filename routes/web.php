@@ -23,6 +23,10 @@ Route::get('/', function(){
 Route::get('/dashboardadmin',[BarangController::class, 'dashboard']);
 Route::get('/barang',[BarangController::class, 'index']);
 Route::get('/tambahbarang',[BarangController::class, 'create']);
+Route::post('/uploadgambar',[BarangController::class, 'store']);
+Route::get('/editbarang/{id}',[BarangController::class, 'edit']);
+Route::put('/editproses/{id}',[BarangController::class, 'editStore']);
+Route::get('/gambardelete/{id}',[BarangController::class,'delete']);
 
 Route::get('/test2', function(){
     return view('login');

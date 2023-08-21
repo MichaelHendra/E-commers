@@ -9,8 +9,8 @@ class Barang extends Model
 {
     use HasFactory;
     protected $table = 'tb_barang';
-    protected $primaryKey = 'id_barang';
+    protected $primaryKey = 'id_brg';
     public $incrementing = false;
-    protected $fillable = ['id_brg','nama_barang','deskripsi','gambar','stok'];
+    protected $fillable = ['id_brg','nama_barang','deskripsi','gambar','path','harga','stok'];
     public $timestamps = false;
 }
