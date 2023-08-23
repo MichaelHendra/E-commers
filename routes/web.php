@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\TokoController;
 use App\Models\Barang;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function(){
-    return view('dashboard_user/dashboard');
+Route::get('/',[TokoController::class, 'index']);
+Route::get('/shop', function(){
+    return view('dashboard_user/shop');
 });
+
 
 Route::get('/dashboardadmin',[BarangController::class, 'dashboard']);
 Route::get('/barang',[BarangController::class, 'index']);

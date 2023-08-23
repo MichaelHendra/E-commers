@@ -7,81 +7,7 @@
 </div>
 
 <!-- Offcanvas Menu Begin -->
-<div class="offcanvas-menu-overlay"></div>
-<div class="offcanvas-menu-wrapper">
-    <div class="offcanvas__close">+</div>
-    <ul class="offcanvas__widget">
-        <li><span class="icon_search search-switch"></span></li>
-        <li><a href="#"><span class="icon_heart_alt"></span>
-            <div class="tip">2</div>
-        </a></li>
-        <li><a href="#"><span class="icon_bag_alt"></span>
-            <div class="tip">2</div>
-        </a></li>
-    </ul>
-    <div class="offcanvas__logo">
-        <a href="./index.html"><img src="{{asset('/assets/img/logo.png')}}" alt=""></a>
-    </div>
-    <div id="mobile-menu-wrap"></div>
-    <div class="offcanvas__auth">
-        <a href="#">Login</a>
-        <a href="#">Register</a>
-    </div>
-</div>
-<!-- Offcanvas Menu End -->
 
-<!-- Header Section Begin -->
-<header class="header">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-3 col-lg-2">
-                <div class="header__logo">
-                    <a href="./index.html"><img src="{{asset('/assets/img/logo.png')}}" alt=""></a>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-7">
-                <nav class="header__menu">
-                    <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="#">Women’s</a></li>
-                        <li><a href="#">Men’s</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="./product-details.html">Product Details</a></li>
-                                <li><a href="./shop-cart.html">Shop Cart</a></li>
-                                <li><a href="./checkout.html">Checkout</a></li>
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-lg-3">
-                <div class="header__right">
-                    <div class="header__right__auth">
-                        <a href="#">Login</a>
-                        <a href="#">Register</a>
-                    </div>
-                    <ul class="header__right__widget">
-                        <li><span class="icon_search search-switch"></span></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span>
-                            <div class="tip">2</div>
-                        </a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span>
-                            <div class="tip">2</div>
-                        </a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="canvas__open">
-            <i class="fa fa-bars"></i>
-        </div>
-    </div>
-</header>
 <!-- Header Section End -->
 
 <!-- Categories Section Begin -->
@@ -92,7 +18,7 @@
                 <div class="categories__item categories__large__item set-bg"
                 data-setbg="{{asset('/assets/img/categories/category-1.jpg')}}">
                 <div class="categories__text">
-                    <h1>Women’s fashion</h1>
+                    <h1>Samsung</h1>
                     <p>Sitamet, consectetur adipiscing elit, sed do eiusmod tempor incidid-unt labore
                     edolore magna aliquapendisse ultrices gravida.</p>
                     <a href="#">Shop now</a>
@@ -104,7 +30,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                     <div class="categories__item set-bg" data-setbg="{{asset('/assets/img/categories/category-2.jpg')}}">
                         <div class="categories__text">
-                            <h4>Men’s fashion</h4>
+                            <h4>Oppo</h4>
                             <p>358 items</p>
                             <a href="#">Shop now</a>
                         </div>
@@ -113,7 +39,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                     <div class="categories__item set-bg" data-setbg="{{asset('/assets/img/categories/category-3.jpg')}}">
                         <div class="categories__text">
-                            <h4>Kid’s fashion</h4>
+                            <h4>Infinix</h4>
                             <p>273 items</p>
                             <a href="#">Shop now</a>
                         </div>
@@ -122,7 +48,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                     <div class="categories__item set-bg" data-setbg="{{asset('/assets/img/categories/category-4.jpg')}}">
                         <div class="categories__text">
-                            <h4>Cosmetics</h4>
+                            <h4>Xiaomi</h4>
                             <p>159 items</p>
                             <a href="#">Shop now</a>
                         </div>
@@ -131,7 +57,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 p-0">
                     <div class="categories__item set-bg" data-setbg="{{asset('/assets/img/categories/category-5.jpg')}}">
                         <div class="categories__text">
-                            <h4>Accessories</h4>
+                            <h4>Vivo</h4>
                             <p>792 items</p>
                             <a href="#">Shop now</a>
                         </div>
@@ -156,19 +82,32 @@
         <div class="col-lg-8 col-md-8">
             <ul class="filter__controls">
                 <li class="active" data-filter="*">All</li>
-                <li data-filter=".women">Women’s</li>
-                <li data-filter=".men">Men’s</li>
-                <li data-filter=".kid">Kid’s</li>
-                <li data-filter=".accessories">Accessories</li>
-                <li data-filter=".cosmetic">Cosmetics</li>
             </ul>
         </div>
+    </div>
+    <div class="row property__gallery">
+        @forelse ($barang as $item)    
+        <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+            <div class="product__item">
+                <div class="product__item__pic set-bg" data-setbg="{{asset($item->path)}}">
+                    <ul class="product__hover">
+                        <li><a href="{{asset('/assets/img/product/product-1.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                    </ul>
+                </div>
+                <div class="product__item__text">
+                    <h6><a href="#">{{$item->nama_barang}}</a></h6>
+                    <div class="product__price">{{$item->harga}}</div>
+                </div>
+            </div>
+        </div>
+        @empty
     </div>
     <div class="row property__gallery">
         <div class="col-lg-3 col-md-4 col-sm-6 mix women">
             <div class="product__item">
                 <div class="product__item__pic set-bg" data-setbg="{{asset('/assets/img/product/product-1.jpg')}}">
-                    <div class="label new">New</div>
                     <ul class="product__hover">
                         <li><a href="{{asset('/assets/img/product/product-1.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
                         <li><a href="#"><span class="icon_heart_alt"></span></a></li>
@@ -177,175 +116,13 @@
                 </div>
                 <div class="product__item__text">
                     <h6><a href="#">Buttons tweed blazer</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
                     <div class="product__price">$ 59.0</div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix men">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="{{asset('/assets/img/product/product-2.jpg')}}">
-                    <ul class="product__hover">
-                        <li><a href="{{asset('/assets/img/product/product-2.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="#">Flowy striped skirt</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="product__price">$ 49.0</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="{{asset('/assets/img/product/product-3.jpg')}}">
-                    <div class="label stockout">out of stock</div>
-                    <ul class="product__hover">
-                        <li><a href="{{asset('/assets/img/product/product-3.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="#">Cotton T-Shirt</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="product__price">$ 59.0</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="{{asset('/assets/img/product/product-4.jpg')}}">
-                    <ul class="product__hover">
-                        <li><a href="{{asset('/assets/img/product/product-4.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="#">Slim striped pocket shirt</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="product__price">$ 59.0</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="{{asset('/assets/img/product/product-5.jpg')}}">
-                    <ul class="product__hover">
-                        <li><a href="{{asset('/assets/img/product/product-5.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="#">Fit micro corduroy shirt</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="product__price">$ 59.0</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-            <div class="product__item sale">
-                <div class="product__item__pic set-bg" data-setbg="{{asset('/assets/img/product/product-6.jpg')}}">
-                    <div class="label sale">Sale</div>
-                    <ul class="product__hover">
-                        <li><a href="{{asset('/assets/img/product/product-6.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="#">Tropical Kimono</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-            <div class="product__item">
-                <div class="product__item__pic set-bg" data-setbg="{{asset('/assets/img/product/product-7.jpg')}}">
-                    <ul class="product__hover">
-                        <li><a href="{{asset('/assets/img/product/product-7.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="#">Contrasting sunglasses</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="product__price">$ 59.0</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-            <div class="product__item sale">
-                <div class="product__item__pic set-bg" data-setbg="{{asset('/assets/img/product/product-8.jpg')}}">
-                    <div class="label">Sale</div>
-                    <ul class="product__hover">
-                        <li><a href="{{asset('/assets/img/product/product-8.jpg')}}" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                    </ul>
-                </div>
-                <div class="product__item__text">
-                    <h6><a href="#">Water resistant backpack</a></h6>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                </div>
-            </div>
-        </div>
+        
     </div>
+    @endforelse
 </div>
 </section>
 <!-- Product Section End -->
