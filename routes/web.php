@@ -18,9 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[TokoController::class, 'index']);
-Route::get('/shop', function(){
-    return view('dashboard_user/shop');
-});
+Route::get('/shop',[TokoController::class, 'index2']);
+
 
 
 Route::get('/dashboardadmin',[BarangController::class, 'dashboard']);

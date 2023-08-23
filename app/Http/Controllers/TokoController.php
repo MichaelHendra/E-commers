@@ -13,4 +13,10 @@ class TokoController extends Controller
             'barang' => $barang,
         ]);
     }
+    public function index2() {
+        $barang = Barang::all();
+        return view('dashboard_user/shop',[
+            'barang' => $barang,
+        ]);
+    }
 }
