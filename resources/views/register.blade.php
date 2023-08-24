@@ -35,38 +35,46 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                            <div class="col-lg-7">
                                 <div class="p-5">
-                                    @if(session('error'))
-                                    <div class="alert alert-danger">
-                                    <b>Opps!</b> {{session('error')}}
-                                     </div>
-                                    @endif
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Halaman Login Toko</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Buat Akun</h1>
                                     </div>
-                                    <form action="/login/store" method="POST" class="user">
+                                    @if(session('message'))
+                                    <div class="alert alert-success">
+                                        {{session('message')}}
+                                    </div>
+                                    @endif
+                                    <form action="{{url('/register/proses')}}" method="POST" class="user">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" name="username" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Masukan Username">
+                                            <input type="text" class="form-control form-control-user" id="exampleFirstName" name="nama" placeholder="Masukan Nama Anda" required>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password"name="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="username" placeholder="Masukan Username" required>
                                         </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" name="email" placeholder="Email Address" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user" id="exampleInputEmail" name="password" placeholder="Masukan Password" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea type="text" class="form-control form-control-user" id="exampleInputEmail" name="alamat" required> Masukan Alamat Anda </textarea>
+                                        </div>
+                                        <input type="hidden" name="role" value="user">
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Register Account
                                         </button>
+                                        <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="login.html">Already have an account? Login!</a>
                                     </div>
                                 </div>
                             </div>
