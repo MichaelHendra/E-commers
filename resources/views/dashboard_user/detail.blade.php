@@ -16,8 +16,12 @@
                 <div class="product__details__text">
                     <h3>{{$barang->nama_barang}}</h3>
                     <div class="product__details__price"> Rp. {{$barang->harga}} </div>
-                    <form action="" method="POST">
+                    <form action="{{url('/barang/detail/add/')}}" method="POST">
                     @csrf
+                    @auth
+                        <input type="hidden" name="id_user" value="{{Auth::user()->id_user}}">
+                    @endauth
+                        <input type="hidden" name="id_brg" value="{{$barang->id_brg}}">
                         <div class="product__details__button">
                             <div class="quantity">
                                 <span>Quantity:</span>
@@ -30,6 +34,7 @@
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                 <li><a href="#"><span class="icon_adjust-horiz"></span></a></li>
                             </ul> --}}
+                        </div>
                         </div>
                     </form>
                     <div class="product__details__widget">

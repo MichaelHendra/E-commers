@@ -25,10 +25,10 @@ Route::post('/login/store', [LoginController::class, 'loginAction']);
 Route::get('/logout', [LoginController::class, 'Logout']);
 
 
-Route::get('/',[TokoController::class, 'index']);
+Route::get('/',[TokoController::class, 'index'])->name('index');
 Route::get('/shop',[TokoController::class, 'index2']);
 Route::get('/barang/detail/{id}',[TokoController::class, 'detail']);
-Route::post('/barang/detail/add/{id}',[TokoController::class],'detailAdd');
+Route::post('/barang/detail/add/',[TokoController::class,'store']);
 
 
 Route::middleware(['auth', 'role:Admin'])->group(function () {

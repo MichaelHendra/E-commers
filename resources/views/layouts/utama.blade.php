@@ -70,7 +70,7 @@
                 <div class="header__right">
                     <div class="header__right__auth">
                         @auth
-                        <p>{{ Auth::user()->username }}</p>
+                        <a href="/">{{ Auth::user()->username }}</a>
                             <a href="/logout">Logout</a>
                         @else
                             <a href="/login">Login</a>

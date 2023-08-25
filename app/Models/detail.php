@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class detail extends Model
 {
     use HasFactory;
-    protected $table = 'tb_barang';
+    protected $table = 'tb_detail_belanja';
     protected $primaryKey = 'id_detail';
     // public $incrementing = false;
     protected $fillable = ['id_brg','jumlah','harga_jual','id_user','status','tanggal'];
