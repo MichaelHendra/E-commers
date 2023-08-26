@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TokoController;
 use App\Http\Controllers\UserController;
@@ -29,6 +30,11 @@ Route::get('/',[TokoController::class, 'index'])->name('index');
 Route::get('/shop',[TokoController::class, 'index2']);
 Route::get('/barang/detail/{id}',[TokoController::class, 'detail']);
 Route::post('/barang/detail/add/',[TokoController::class,'store']);
+
+Route::middleware(['auth', 'role:user,Admin'])->group(function () {
+    Route::get('/cart',[CheckoutController::class,'index']);
+    Route::get('/checkout',[CheckoutController::class,'checkout']);
+});
 
 
 Route::middleware(['auth', 'role:Admin'])->group(function () {

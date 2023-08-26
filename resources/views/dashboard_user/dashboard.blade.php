@@ -97,7 +97,7 @@
                 </div>
                 <div class="product__item__text">
                     <h6><a href="#">{{$item->nama_barang}}</a></h6>
-                    <div class="product__price">{{$item->harga}}</div>
+                    <div class="product__price">Rp. {{$item->harga}}</div>
                 </div>
             </div>
         </div>
@@ -146,7 +146,7 @@
                 <div class="discount__text__title">
                     <span>Discount</span>
                     <h2>Fall 2023</h2>
-                    <h5><span>Sale</span> 69%</h5>
+                    <h5><span>Sale</span>69%</h5>
                 </div>
                 <div class="discount__countdown" id="countdown-time">
                     <div class="countdown__item">
