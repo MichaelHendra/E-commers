@@ -26,11 +26,14 @@
                                 </td>
                                 <td class="cart__price">Rp.  {{$item->barang->harga}}</td>
                                 <td class="cart__quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="{{$item->jumlah}}">
+                                    <div class="pro-qty" data-detail-id="{{ $item->id_detail }}" data-product-id="{{ $item->id_brg }}">
+                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                        <input type="text" value="{{$item->jumlah}}" min="0">
+                                        {{-- <span class="dec qtybtn">-</span>
+                                        <span class="inc qtybtn">+</span> --}}
                                     </div>
                                 </td>
-                                <td class="cart__total">$ {{$item->harga_jual}}</td>
+                                <td class="cart__total">Rp.  {{$item->harga_jual}}</td>
                                 <td class="cart__close"><a href="/cartdelete/{{$item->id_detail}}"><span class="icon_close"></span></a></td>
                             @empty
                                 <td>empty</td>

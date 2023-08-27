@@ -12,6 +12,14 @@ class CheckoutController extends Controller
         $detail = detail::where('id_user', Auth::user()->id_user)->get();
         return view('dashboard_user.cart',['detail' => $detail]);
     }
+    public function updateQuantity(Request $request, $id)
+{
+    $detail = detail::find($id);
+    $detail->jumlah = $request->input('quantity');
+    $detail->save();
+
+    return response()->json(['message' => 'Quantity updated successfully']);
+}
     public function checkout()  {
         return view('dashboard_user.checkout');
     }

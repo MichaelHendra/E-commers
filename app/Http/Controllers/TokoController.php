@@ -53,10 +53,7 @@ class TokoController extends Controller
                     'tanggal' => date(now())
                 ]);
             }
-    
         }
-
-       
         return redirect('/');
     }
 }

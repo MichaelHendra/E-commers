@@ -209,19 +209,36 @@ Created: Colorib
 	proQty.prepend('<span class="dec qtybtn">-</span>');
 	proQty.append('<span class="inc qtybtn">+</span>');
 	proQty.on('click', '.qtybtn', function () {
-		var $button = $(this);
-		var oldValue = $button.parent().find('input').val();
+        var $button = $(this);
+        var oldValue = $button.parent().find('input').val();
+        var detailId = $button.parent().data('detail-id'); // Ambil ID detail
+        var productId = $button.parent().data('product-id'); // Ambil ID produk
+        var newVal;
+
 		if ($button.hasClass('inc')) {
-			var newVal = parseFloat(oldValue) + 1;
-		} else {
-			// Don't allow decrementing below zero
-			if (oldValue > 0) {
-				var newVal = parseFloat(oldValue) - 1;
-			} else {
-				newVal = 0;
-			}
-		}
-		$button.parent().find('input').val(newVal);
+            newVal = parseFloat(oldValue) + 1;
+        } else {
+            if (oldValue > 0) {
+                newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+    
+        // Kirim permintaan AJAX ke server untuk memperbarui nilai
+        $.ajax({
+            url: '/update-quantity/' + detailId,
+            type: 'POST',
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                quantity: newVal,
+                product_id: productId // Kirim ID produk sebagai bagian dari permintaan
+            },
+            success: function(response) {
+                // Tanggapi jika pembaruan berhasil
+                $button.parent().find('input').val(newVal);
+            }
+        });
     });
     
     /*-------------------

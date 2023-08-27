@@ -33,7 +33,9 @@ Route::post('/barang/detail/add/',[TokoController::class,'store']);
 
 Route::middleware(['auth', 'role:user,Admin'])->group(function () {
     Route::get('/cart',[CheckoutController::class,'index']);
+    Route::get('/cart/edit/{id}',[CheckoutController::class,'cartEdit']);
     Route::get('/checkout',[CheckoutController::class,'checkout']);
+    Route::post('/update-quantity/{id}', [CheckoutController::class,'updateQuantity']);
 });
 
 
