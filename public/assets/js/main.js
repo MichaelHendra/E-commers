@@ -213,15 +213,20 @@ Created: Colorib
         var oldValue = $button.parent().find('input').val();
         var detailId = $button.parent().data('detail-id'); // Ambil ID detail
         var productId = $button.parent().data('product-id'); // Ambil ID produk
+        var harga = $button.parent().data('harga');
         var newVal;
+        var newHJ;
 
 		if ($button.hasClass('inc')) {
             newVal = parseFloat(oldValue) + 1;
+            newHJ = parseFloat(newVal) * parseFloat(harga);
         } else {
             if (oldValue > 0) {
                 newVal = parseFloat(oldValue) - 1;
+                newHJ = parseFloat(newVal) * parseFloat(harga);
             } else {
                 newVal = 0;
+                newHJ = parseFloat(newVal) * parseFloat(harga);
             }
         }
     
@@ -232,15 +237,21 @@ Created: Colorib
             data: {
                 _token: $('meta[name="csrf-token"]').attr('content'),
                 quantity: newVal,
+                hargaj: newHJ,
                 product_id: productId // Kirim ID produk sebagai bagian dari permintaan
             },
             success: function(response) {
                 // Tanggapi jika pembaruan berhasil
                 $button.parent().find('input').val(newVal);
+                $button.parent().find('harga').val(newHJ);
+                updateHargaDisplay(detailId, newHJ);
             }
         });
     });
-    
+    function updateHargaDisplay(detailId, newHJ) {
+        // Mengganti isi dari elemen yang menampilkan harga
+        $('.cart__total[data-detail-id="' + detailId + '"]').text('Rp. ' + newHJ);
+    }
     /*-------------------
 		Radio Btn
 	--------------------- */

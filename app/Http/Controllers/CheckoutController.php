@@ -14,8 +14,9 @@ class CheckoutController extends Controller
     }
     public function updateQuantity(Request $request, $id)
 {
-    $detail = detail::find($id);
+    $detail = detail::find($id);;
     $detail->jumlah = $request->input('quantity');
+    $detail->harga_jual = $request->input('hargaj');
     $detail->save();
 
     return response()->json(['message' => 'Quantity updated successfully']);
