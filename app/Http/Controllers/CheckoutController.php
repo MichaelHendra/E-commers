@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\detail;
+use App\Models\DetailTransaksi;
 use App\Models\Transaksi;
 use App\Models\User;
 use App\Models\UserM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CheckoutController extends Controller
 {
 public function index()  {
         $detail = detail::where('id_user', Auth::user()->id_user)->where('status','0')->get();
-        return view('dashboard_user.cart',['detail' => $detail]);
+        $subtotal = detail::where('id_user', Auth::user()->id_user)->where('status','0')->get()->sum('harga_jual');
+        return view('dashboard_user.cart',['detail' => $detail,'subtotal'=>$subtotal]);
     }
 public function updateQuantity(Request $request, $id)
 {
@@ -65,17 +68,18 @@ function generateTransactionId()
 
 public function checkout()  {
     $detail = detail::where('id_user', Auth::user()->id_user)->where('status','0')->get();
-    $subtotal = detail::where('id_user', Auth::user()->id_user)->get()->sum('harga_jual');
+    $subtotal = detail::where('id_user', Auth::user()->id_user)->where('status','0')->get()->sum('harga_jual');
     $user = UserM::where('id_user',Auth::user()->id_user)->get()->first();
     return view('dashboard_user.checkout',['detail' => $detail,'user'=>$user,'subtotal'=>$subtotal]);
 }
 public function checkoutproses(Request $request){
     $user_id = Auth::user()->id_user;
     $lastTransaction = detail::where('id_user', $user_id)->where('status','0')->get();
+    $subtotal = detail::where('id_user', Auth::user()->id_user)->where('status','0')->get()->sum('harga_jual');
     $id_transaksi = $this->generateTransactionId();
     Transaksi::create([
         'id_transaksi' => $id_transaksi,
-        'total' => $request->total,
+        'total' => $subtotal,
         'valid' => 0, 
         'id_user' => $user_id,
     ]);
@@ -85,9 +89,39 @@ public function checkoutproses(Request $request){
         'status'=> 1,
     ]);
     }
+    return redirect('/payment/'.$id_transaksi);
+    
+}
+public function payment(string $id){
+    $transaksi = Transaksi::find($id);
+    $detail = detail::where('id_transaksi',$id)->get();
+    // dd($detail);
+    return view('dashboard_user.payment',['transaksi'=>$transaksi,'detail'=>$detail]);
+}
+public function paymentProses(Request $request, String $id) {
+    $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+
+    $image = $request->file('image');
+    $imageName = time() . '.' . $image->getClientOriginalExtension();
+    $image->move(public_path('buktiBayar'), $imageName);
+
+    DetailTransaksi::create([
+        'id_transaksi' => $id,
+        'bank' => $request->bank,
+        'no_rek' => $request->no_rek,
+        'an' => $request->an,
+        'gambar' => $imageName,
+        'path' => 'buktiBayar/'. $imageName,
+    ]);
 
     return redirect('/');
-    
+}
+
+public function transaksi() {
+    return view('dashboard_user.transaksi');
 }
 
 

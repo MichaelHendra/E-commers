@@ -68,6 +68,7 @@
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/shop">Shop</a></li>
+                        <li><a href="/transaksi">Transaksi</a></li>
                     </ul>
                 </nav>
             </div>

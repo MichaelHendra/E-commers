@@ -63,8 +63,7 @@
                 <div class="cart__total__procced">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Subtotal <span>$ 750.0</span></li>
-                        <li>Total <span>$ 750.0</span></li>
+                        <li>Total <span>Rp. {{$subtotal}}</span></li>
                     </ul>
                     <a href="/checkout" class="primary-btn">Proceed to checkout</a>
                 </div>

@@ -2,36 +2,32 @@
 @section('isi')
 <section class="checkout spad">
     <div class="container">
-        <form action="/checkout/proses" method="POST" class="checkout__form">
+        <form action="{{url('/payment/proses/'.$transaksi->id_transaksi)}}" method="POST" enctype="multipart/form-data" class="checkout__form">
+            @csrf
             <div class="row">
                 <div class="col-lg-8">
                     <h5>Billing detail</h5>
                     <div class="row">
-                        
                         <div class="col-lg-12">
                             <div class="checkout__form__input">
-                                <p>Nama </p>
-                                <input type="text" value="{{ $user->name }}" disabled>
+                                <p>Kode Transaksi</p>
+                                <input type="text" name="id_transaksi" value="{{ $transaksi->id_transaksi }}" disabled>
                             </div>
                             <div class="checkout__form__input">
-                                <p>Alamat</p>
-                                <input type="text" value="{{ $user->alamat }}" disabled>
+                                <p>Bank</p>
+                                <input type="text" name="bank" >
                             </div>
                             <div class="checkout__form__input">
-                                <p>Kota</p>
-                                <input type="text" value="{{ $user->kota }}" disabled>
+                                <p>No rekening</p>
+                                <input type="text" name="no_rek">
                             </div>
                             <div class="checkout__form__input">
-                                <p>Provinsi</p>
-                                <input type="text" value="{{ $user->prov }}" disabled>
+                                <p>Nama Pembayar Yang Terdaftar Dibank</p>
+                                <input type="text" name="an">
                             </div>
                             <div class="checkout__form__input">
-                                <p>Kode Pos </p>
-                                <input type="text" value="{{ $user->kode_pos }}" disabled>
-                            </div>
-                            <div class="checkout__form__input">
-                                <p>No Telp </p>
-                                <input type="text" value="{{ $user->no_telp }}" disabled>
+                                <p>Bukti Bayar</p>
+                                <input type="file" name="image">
                             </div>
                         </div>
                         </div>
@@ -54,7 +50,7 @@
                             </div>
                             <div class="checkout__order__total">
                                 <ul>
-                                    <li>Total <span>Rp. {{$subtotal}}</span></li>
+                                    <li>Total <span>Rp. {{$transaksi->total}}</span></li>
                                 </ul>
                             </div>
                             <div class="checkout__order__widget">
@@ -64,8 +60,6 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                                @csrf
-                                {{-- <input type="hidden" name="id_transaksi" value="{{ $id_transaksi }}"> --}}
                                 <button type="submit" class="site-btn">Lanjut</button>
                         </div>
                     </div>
