@@ -11,6 +11,6 @@ class UserM extends Model
     protected $table = 'users';
     protected $primaryKey = 'id_user';
     // public $incrementing = false;
-    protected $fillable = ['id_user','name','username','email','password','role','alamat'];
+    protected $fillable = ['id_user','name','username','email','password','role','alamat','kota','prov','kode_pos','no_telp'];
     public $timestamps = false;
 }

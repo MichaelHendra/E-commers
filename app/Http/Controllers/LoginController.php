@@ -26,7 +26,7 @@ class LoginController extends Controller
             return redirect('/');
         }else{
             Session::flash('error','Username atau Password Salah');
-            return redirect('/');
+            return redirect('/login');
         }
         
     }

@@ -28,7 +28,7 @@ class TokoController extends Controller
         ]);
     }
     public function store(Request $request)  {
-        $detail = detail::where('id_brg', $request->id_brg)->where('id_user', $request->id_user)->exists();
+        $detail = detail::where('id_brg', $request->id_brg)->where('id_user', $request->id_user)->where('status',0)->exists();
         $barang = Barang::where('id_brg', $request->id_brg)->get()->first();
         if(!Auth::user()){
             return redirect('/login');

@@ -35,7 +35,9 @@ Route::middleware(['auth', 'role:user,Admin'])->group(function () {
     Route::get('/cart',[CheckoutController::class,'index']);
     Route::get('/cart/edit/{id}',[CheckoutController::class,'cartEdit']);
     Route::get('/checkout',[CheckoutController::class,'checkout']);
+    Route::get('/cartdelete/{id}',[CheckoutController::class,'delete']);
     Route::post('/update-quantity/{id}', [CheckoutController::class,'updateQuantity']);
+    Route::post('/checkout/proses',[CheckoutController::class,'checkoutproses']);
 });
 
 
@@ -47,7 +49,4 @@ Route::middleware(['auth', 'role:Admin'])->group(function () {
     Route::get('/editbarang/{id}',[BarangController::class, 'edit']);
     Route::put('/editproses/{id}',[BarangController::class, 'editStore']);
     Route::get('/gambardelete/{id}',[BarangController::class,'delete']);
-});
-Route::get('/test2', function(){
-    return view('login');
 });

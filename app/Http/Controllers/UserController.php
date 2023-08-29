@@ -21,6 +21,10 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role,
             'alamat'=> $request->alamat,
+            'kota' => $request->kota,
+            'prov' => $request->prov,
+            'kode_pos' => $request->kode_pos,
+            'no_telp' => $request->no_telp
         ]);
         Session::flash('message', 'Register Berhasil. Akun Anda sudah Aktif silahkan Login menggunakan username dan password.');
         return redirect('/login'); 

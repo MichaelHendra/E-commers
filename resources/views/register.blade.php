@@ -63,6 +63,18 @@
                                         <div class="form-group">
                                             <textarea type="text" class="form-control form-control-user" id="exampleInputEmail" name="alamat" required> Masukan Alamat Anda </textarea>
                                         </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="kota" placeholder="Masukan Kota/Kabupaten" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="prov" placeholder="Masukan Provinsi" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="kode_pos" placeholder="Masukan kode Pos" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="no_telp" placeholder="Masukan No Telpon / Whatsapp" required>
+                                        </div>
                                         <input type="hidden" name="role" value="user">
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Register Account
