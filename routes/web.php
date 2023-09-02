@@ -4,9 +4,11 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TokoController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Role;
 use App\Models\Barang;
+use App\Models\Transaksi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,9 +42,10 @@ Route::middleware(['auth', 'role:user,Admin'])->group(function () {
     Route::post('/update-quantity/{id}', [CheckoutController::class,'updateQuantity']);
     Route::post('/checkout/proses',[CheckoutController::class,'checkoutproses']);
     Route::get('/cartdelete/{id}',[CheckoutController::class,'delete']);
-    Route::get('/transaksi',[CheckoutController::class,'transaksi']);
     Route::get('/payment/{id}',[CheckoutController::class,'payment']);
     Route::post('/payment/proses/{id}',[CheckoutController::class,'paymentProses']);
+    Route::get('/transaksi',[TransaksiController::class,'index']);
+    Route::get('/transaksi/detail/{id}',[TransaksiController::class,'detailTransaksi']);
 });
 
 

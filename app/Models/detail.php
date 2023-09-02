@@ -11,7 +11,7 @@ class detail extends Model
     protected $table = 'tb_detail_belanja';
     protected $primaryKey = 'id_detail';
     // public $incrementing = false;
-    protected $fillable = ['id_detail','id_brg','jumlah','harga_jual','id_user','status','tanggal'];
+    protected $fillable = ['id_detail','id_brg','id_transaksi','jumlah','harga_jual','id_user','status','tanggal'];
     public $timestamps = false;
     public function barang()  {
         return $this->belongsTo(Barang::class,'id_brg')->withDefault([

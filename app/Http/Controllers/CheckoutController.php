@@ -116,13 +116,6 @@ public function paymentProses(Request $request, String $id) {
         'gambar' => $imageName,
         'path' => 'buktiBayar/'. $imageName,
     ]);
-
     return redirect('/');
 }
-
-public function transaksi() {
-    return view('dashboard_user.transaksi');
-}
-
-
 }

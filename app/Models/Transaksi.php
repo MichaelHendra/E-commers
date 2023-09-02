@@ -13,4 +13,11 @@ class Transaksi extends Model
     // public $incrementing = false;
     protected $fillable = ['id_transaksi','total','valid','id_user'];
     public $timestamps = false;
+    
+    public function detail() {
+        return $this->belongsTo(detail::class,'id_transaksi')->withDefault([
+            'id_brg' => 'tidak ada'
+        ]);
+        
+    }
 }

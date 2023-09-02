@@ -22,7 +22,7 @@
                                 <input type="text" name="no_rek">
                             </div>
                             <div class="checkout__form__input">
-                                <p>Nama Pembayar Yang Terdaftar Dibank</p>
+                                <p>Atas Nama</p>
                                 <input type="text" name="an">
                             </div>
                             <div class="checkout__form__input">
